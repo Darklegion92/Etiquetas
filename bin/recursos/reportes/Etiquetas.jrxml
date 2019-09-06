@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="198" pageHeight="119" columnWidth="192" leftMargin="3" rightMargin="3" topMargin="3" bottomMargin="3" uuid="c03dd407-064e-4ddb-84c6-b729a903e934">
+	<property name="ireport.zoom" value="2.2"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="descripcion" class="java.lang.String"/>
+	<parameter name="precio" class="java.lang.String"/>
+	<parameter name="codigo" class="java.lang.String"/>
+	<parameter name="pum" class="java.lang.String"/>
+	<pageFooter>
+		<band height="100">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="27" width="10" height="73" uuid="2703913b-07b0-4389-9f28-02ba19f550f9"/>
+				<textElement rotation="Left">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="36" width="191" height="44" uuid="be5774e3-549f-49ca-a8a6-cc3b2a71e0c7"/>
+				<textElement textAlignment="Center">
+					<font size="34" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{precio}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="-1" width="191" height="21" isPrintWhenDetailOverflows="true" uuid="d77bf6bb-b7d0-4f5f-8a32-ec67a07800c0"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{descripcion}]]></textFieldExpression>
+			</textField>
+			<elementGroup>
+				<componentElement>
+					<reportElement isPrintRepeatedValues="false" x="20" y="79" width="63" height="19" uuid="da3f7354-bb2f-4cc5-8459-eb2d1c8b239e"/>
+					<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Codabar" drawText="true" checksumRequired="false" barWidth="0" barHeight="0">
+						<jr:codeExpression><![CDATA[$P{codigo}]]></jr:codeExpression>
+					</jr:barbecue>
+				</componentElement>
+			</elementGroup>
+			<textField>
+				<reportElement x="83" y="80" width="97" height="11" isPrintWhenDetailOverflows="true" uuid="7a6f854b-406b-4ab7-8e05-bef507472667"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
