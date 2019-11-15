@@ -49,7 +49,7 @@ public class Aplicacion {
 			if (misDatos == null) misDatos = miCoordinador.getMisDatos();
 			boolean licenciado = false;
 			if(misDatos.getLicencia().length()==24) {			
-					licenciado = gestionLicenciaDao.validarLicencia(misDatos.getLicencia());
+					licenciado = gestionLicenciaDao.validarLicencia(misDatos.getLicencia(),miCoordinador.obtenerSerial());
 					miCoordinador.eliminarArchivo();
 					misDatos = miCoordinador.getMisDatos();
 					miCoordinador.guardarDatos(misDatos);
@@ -65,6 +65,7 @@ public class Aplicacion {
 				miVentanaPrincipal.setVisible(true);
 			} else {
 				JOptionPane.showMessageDialog(null, "Error de licencia, Intente Nuevamente\n o llame a su proveedor");
+				miCoordinador.eliminarArchivo();
 				System.exit(0);
 			}
 		} catch (ClassNotFoundException | SQLException | IOException e) {

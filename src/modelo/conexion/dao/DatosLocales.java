@@ -28,7 +28,7 @@ public class DatosLocales {
 			if ((datos = b.readLine().split("-")) != null) {
 				String[] licencia = miCoordinador.desEncryptar(datos[6]).split("-");
 				if(!miCoordinador.obtenerSerial().equals(licencia[0])) licencia[2] = "false";
-				misDatos = new DatosVo(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5],licencia[2]);
+				misDatos = new DatosVo(datos[0], datos[1], datos[2], miCoordinador.desEncryptar(datos[3]), datos[4], datos[5],licencia[2]);
 			}
 			b.close();
 		} else {
@@ -53,7 +53,7 @@ public class DatosLocales {
 			fichero = new FileWriter(nombre);
 			pw = new PrintWriter(fichero);
 			pw.println(misDatos.getServidor() + "-" + misDatos.getRuta() + "-" + misDatos.getUsuario() + "-"
-					+ misDatos.getContrasenia() + "-" + misDatos.getListaPrecios() + "-" + misDatos.getEmpresa()+"-"+misDatos.getLicencia());
+					+miCoordinador.encryptar(misDatos.getContrasenia()) + "-" + misDatos.getListaPrecios() + "-" + misDatos.getEmpresa()+"-"+misDatos.getLicencia());
 
 		} catch (Exception e) {
 			e.printStackTrace();

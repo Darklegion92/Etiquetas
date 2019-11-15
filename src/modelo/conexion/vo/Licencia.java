@@ -7,6 +7,15 @@ public class Licencia {
 	private String empresa;
 	private String tipo;
 	private boolean activa;
+	private String equipo;
+
+	public String getEquipo() {
+		return equipo;
+	}
+
+	public void setEquipo(String equipo) {
+		this.equipo = equipo;
+	}
 
 	public String get_id() {
 		return _id;

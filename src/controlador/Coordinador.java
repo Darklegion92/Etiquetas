@@ -103,8 +103,8 @@ public class Coordinador {
 		return misDatos.cargar();
 	}
 
-	public boolean validarLicencia(String licencia) throws IOException {
-		return miGestionLicencia.validarLicencia(licencia);
+	public boolean validarLicencia(String licencia,String serial) throws IOException {
+		return miGestionLicencia.validarLicencia(licencia,serial);
 	}
 
 	public void encryptarLicencia(String dato) {
@@ -128,6 +128,10 @@ public class Coordinador {
 
 	public String obtenerSerial() {
 		return gestionLicenciaDao.obtenertSerial();
+	}
+
+	public String encryptar(String dato) {
+		return miGestionLicencia.encryptar(dato);
 	}
 
 }

@@ -25,7 +25,7 @@ public class gestionLicenciaDao {
 	private Coordinador miCoordinador;
 	private static String ENCRYPT_KEY = "SOLTEC2018-18yr5";
 
-	public boolean validarLicencia(String licencia) throws IOException {
+	public boolean validarLicencia(String licencia,String serial) throws IOException {
 		String datos = "";
 
 		URL url = new URL("https://licenciassoltec.herokuapp.com/licencias/validar");
@@ -33,6 +33,7 @@ public class gestionLicenciaDao {
 		Map<String, Object> params = new LinkedHashMap<>();
 
 		params.put("key", licencia);
+		params.put("serial", serial);
 
 		StringBuilder postData = new StringBuilder();
 		for (Map.Entry<String, Object> param : params.entrySet()) {
@@ -54,7 +55,7 @@ public class gestionLicenciaDao {
 		Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 		for (int c = in.read(); c != -1; c = in.read())
 			datos = datos + (char) c;
-
+		System.err.println(datos);
 		Gson gson = new Gson();
 		try {
 			datos = datos.substring(13);
