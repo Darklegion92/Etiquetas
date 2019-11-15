@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ConexionFireBird {
-    String URL = "jdbc:firebirdsql:servidor/3050:E:/sysplus/Datos/JYK/sysplus.fdb?lc_ctype=ISO8859_1";
-    //String URL = "jdbc:firebirdsql:localhost/3050:d:/firebird/sysplus.fdb?lc_ctype=ISO8859_1";
+    String URL = "jdbc:firebirdsql:192.168.2.203/3050:d:/sysplus/Datos/CEI/sysplus.fdb?lc_ctype=ISO8859_1";
+    //String URL = "jdbc:firebirdsql:localhost/3050:D:/SYSplus/Datos/PRU/sysplus.fdb?lc_ctype=ISO8859_1";
     String Usuario = "CLECTOR";
     String Contrasena = "1234";
     String Driver = "org.firebirdsql.jdbc.FBDriver";
@@ -29,20 +29,16 @@ public class ConexionFireBird {
     	   JOptionPane.showMessageDialog(null, "Se ha prensentado un error al momento de conectar a la bd");
        } 
     }
-    public ConexionFireBird(String Usuario, String Contrasena){
+    public ConexionFireBird(String URL,String Usuario, String Contrasena) throws ClassNotFoundException, SQLException{
         con = null;
          //Realizar conexion
-     try {
+    
         Class.forName(Driver);
         con = DriverManager.getConnection(URL, Usuario, Contrasena);
        if (con !=null){
                     System.out.println("Conexion Establecida");
-                }
-            } catch (ClassNotFoundException | SQLException e){
-                System.out.println("error " + e);
-                
-            }
-         }
+       }
+      }
 
         // este metodo nos retorna la conexion
     public Connection getConnection (){

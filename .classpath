@@ -31,5 +31,7 @@
 	<classpathentry kind="lib" path="src/recursos/librerias/stax-api-1.0-2.jar"/>
 	<classpathentry kind="lib" path="src/recursos/librerias/stax-api-1.0.1.jar"/>
 	<classpathentry kind="lib" path="src/recursos/librerias/swingx-all-1.6.4.jar"/>
+	<classpathentry kind="lib" path="src/recursos/librerias/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="src/recursos/librerias/commons-codec-1.13.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

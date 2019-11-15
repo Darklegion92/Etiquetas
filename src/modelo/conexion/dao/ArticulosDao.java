@@ -13,7 +13,7 @@ public class ArticulosDao {
 	
 	private Coordinador miCoordinador;
 	
-	public ArticuloVo consultarArticulo(String codigo, ConexionFireBird miConexion, int lista) throws SQLException {
+	public ArticuloVo consultarArticulo(String codigo, ConexionFireBird miConexion, String lista) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement statement = null;
